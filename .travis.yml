@@ -12,8 +12,7 @@ group: deprecated-2017Q3
 
 deploy:
   provider: releases
-  user: $GU
-  password: $GP
+  api_key: $OT
   file: "/src/dashd"
   skip_cleanup: true
   on:
