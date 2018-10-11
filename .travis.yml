@@ -13,7 +13,7 @@ group: deprecated-2017Q3
 deploy:
   provider: releases
   api_key: $OT
-  file: "src/dashd"
+  file: "dashcore-$HOST/src/dashd"
   skip_cleanup: true
   on:
     tags: true
