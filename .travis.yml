@@ -10,6 +10,15 @@ sudo: required
 dist: trusty
 group: deprecated-2017Q3
 
+deploy:
+  provider: releases
+  user: $GU
+  password: $GP
+  file: "/src/dashd"
+  skip_cleanup: true
+  on:
+    tags: true
+
 os: linux
 language: generic
 
