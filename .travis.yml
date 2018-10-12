@@ -13,7 +13,7 @@ group: deprecated-2017Q3
 deploy:
   provider: releases
   api_key: $OT
-  file: "dashd"
+  file: "build/dashcore-$HOST/dashd"
   skip_cleanup: true
   on:
     tags: true
@@ -114,4 +114,4 @@ after_script:
     - echo $TRAVIS_COMMIT_RANGE
     - echo $TRAVIS_COMMIT_LOG
 after_success:
-    - if [ "$TRAVIS_PULL_REQUEST" = "false" -a "$TRAVIS_BRANCH" = "develop" -a "$DOCKER_BUILD" = "true" ]; then docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD && ./docker/push-docker.sh; fi
+    - if  "$TRAVIS_PULL_REQUEST" = "false" -a "$TRAVIS_BRANCH" = "develop" -a "$DOCKER_BUILD" = "true" ]; then docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD && ./docker/push-docker.sh; fi
