@@ -15,8 +15,9 @@ deploy:
   api_key: $OT
   file: "build/dashcore-$HOST/dashd"
   skip_cleanup: true
-  on:
-    tags: true
+
+
+    
 
 os: linux
 language: generic
