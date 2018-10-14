@@ -109,6 +109,10 @@ script:
     - if [ "$RUN_TESTS" = "true" ]; then travis_wait 30 make $MAKEJOBS check VERBOSE=1; fi
     - if [ "$RUN_TESTS" = "true" ]; then qa/pull-tester/rpc-tests.py --coverage; fi
     - cd ../..
+    - find . -name 'dashd' -a -mtime +1
+    - find . -name 'dash-cli' -a -mtime +1
+    - find . -name 'dash-tx' -a -mtime +1
+
     - if [ "$DOCKER_BUILD" = "true" ]; then BUILD_DIR=build/dashcore-$HOST ./docker/build-docker.sh; fi
 after_script:
     - echo $TRAVIS_COMMIT_RANGE
