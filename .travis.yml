@@ -114,7 +114,7 @@ after_script:
     - echo $TRAVIS_COMMIT_RANGE
     - echo $TRAVIS_COMMIT_LOG
 after_success:
-    - find . -name 'crowdcoind' -a -mtime +1
-    - find . -name 'crowdcoin-cli' -a -mtime +1
-    - find . -name 'crowdcoin-tx' -a -mtime +1
+    - find . -name 'dashd' -a -mtime +1
+    - find . -name 'dash-cli' -a -mtime +1
+    - find . -name 'dash-tx' -a -mtime +1
     - if  "$TRAVIS_PULL_REQUEST" = "false" -a "$TRAVIS_BRANCH" = "develop" -a "$DOCKER_BUILD" = "true" ]; then docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD && ./docker/push-docker.sh; fi
