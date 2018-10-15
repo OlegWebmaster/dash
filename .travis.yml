@@ -16,7 +16,7 @@ deploy:
     branch: ci-releases_debug
   api_key: $OT
   file_glob: true
-  file: build/dashcore-$HOST/*
+  file: build/*
   skip_cleanup: true
 
 os: linux
