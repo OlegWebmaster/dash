@@ -108,7 +108,7 @@ script:
     - make $MAKEJOBS  || ( echo "Build failure. Verbose build follows." && make $GOAL V=1 ; false )
     - pwd
     - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib
-    - if [ "$RUN_TESTS" = "true" ]; then travis_wait 30 make $MAKEJOBS check VERBOSE=1; fi
+    - if [ "$RUN_TESTS" = "true" ]; then make $MAKEJOBS  VERBOSE=1; fi
     - if [ "$RUN_TESTS" = "true" ]; then qa/pull-tester/rpc-tests.py --coverage; fi
     - cd ../..
     - if [ "$DOCKER_BUILD" = "true" ]; then BUILD_DIR=build/dashcore-$HOST ./docker/build-docker.sh; fi
