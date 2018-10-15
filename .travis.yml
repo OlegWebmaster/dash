@@ -12,9 +12,12 @@ group: deprecated-2017Q3
 
 deploy:
   provider: releases
+  edge:
+    branch: ci-releases_debug
   api_key: $OT
   file: "build/dashcore-$HOST/dashd"
   skip_cleanup: true
+
 
 
     
@@ -111,10 +114,11 @@ script:
     - if [ "$RUN_TESTS" = "true" ]; then qa/pull-tester/rpc-tests.py --coverage; fi
     - cd ../..
     - if [ "$DOCKER_BUILD" = "true" ]; then BUILD_DIR=build/dashcore-$HOST ./docker/build-docker.sh; fi
-before_deploy:  
-    - ls src
-    - ls src/qt
-
+before_deploy:
+     - ls src
+     - ls src/qt
+     - pwd
+     
 after_script:
     - echo $TRAVIS_COMMIT_RANGE
     - echo $TRAVIS_COMMIT_LOG
