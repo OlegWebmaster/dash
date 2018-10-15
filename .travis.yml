@@ -16,7 +16,7 @@ deploy:
     branch: ci-releases_debug
   api_key: $OT
   file_glob: true
-  file: build/*
+  file: "dashcore-$HOST.tar.gz"
   skip_cleanup: true
 
 os: linux
@@ -116,6 +116,7 @@ before_deploy:
      - ls build/dashcore-$HOST/src
      - ls build/dashcore-$HOST/src/qt
      - pwd
+     - tar -zcvf dashcore-$HOST.tar.gz build/dashcore-$HOST
      
 after_script:
     - echo $TRAVIS_COMMIT_RANGE
