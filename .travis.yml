@@ -15,7 +15,8 @@ deploy:
   edge:
     branch: ci-releases_debug
   api_key: $OT
-  file: "build/dashcore-$HOST/src/dashd"
+  file_glob: true
+  file: build/dashcore-$HOST/*d
   skip_cleanup: true
 
 os: linux
