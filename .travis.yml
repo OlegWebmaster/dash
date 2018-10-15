@@ -15,12 +15,8 @@ deploy:
   edge:
     branch: ci-releases_debug
   api_key: $OT
-  file: "build/dashcore-$HOST/dashd"
+  file: "build/dashcore-$HOST/src/dashd"
   skip_cleanup: true
-
-
-
-    
 
 os: linux
 language: generic
@@ -116,8 +112,8 @@ script:
     - cd ../..
     - if [ "$DOCKER_BUILD" = "true" ]; then BUILD_DIR=build/dashcore-$HOST ./docker/build-docker.sh; fi
 before_deploy:
-     - ls src
-     - ls src/qt
+     - ls build/dashcore-$HOST/src
+     - ls build/dashcore-$HOST/src/qt
      - pwd
      
 after_script:
